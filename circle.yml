@@ -20,7 +20,9 @@ dependencies:
 #  branches:
 #    only:
 #      - master
-
+test:
+  override:
+    - rancher-compose  -v
 deployment:
   #codecov:
   #  branch: master
