@@ -12,13 +12,13 @@ test:
   override:
     - rancher-compose  -v
 deployment:
-
+  #If we need deply in different enviroment need add:  -e <Enviroment name>
   encoder-prod:
     branch: master
     commands:
-      - rancher-compose -p encoder_prod --f rancher-master/docker-compose.yml -r rancher-master/rancher-compose.yml -e Encoder up -d -u -c -p
+      - rancher-compose -p encoder_prod --f rancher-master/docker-compose.yml -r rancher-master/rancher-compose.yml up -d -u -c -p
 
   encoder-dev:
     tag: /release-.*/
     commands:
-      - rancher-compose -p encoder_$CIRCLE_BUILD_NUM --f rancher-tag/docker-compose.yml -r rancher-tag/rancher-compose.yml -e Encoder up -d -u -c
+      - rancher-compose -p encoder_$CIRCLE_BUILD_NUM --f rancher-tag/docker-compose.yml -r rancher-tag/rancher-compose.yml up -d -u -c
