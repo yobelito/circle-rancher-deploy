@@ -33,8 +33,8 @@ deployment:
       #- docker login -e $DOCKER_EMAIL -u $DOCKER_USER -p $DOCKER_PASS
       #- docker build -f docker/Dockerfile -t bespoken/encoder:$CIRCLE_PROD .
       #- docker push bespoken/bst:$CIRCLE_PROD
+      - cd rancher-master/
       - ls -la
-      - cd circle-rancher-deploy/rancher-master/
       - rancher-compose -p encoder_prod up -d -u -c -p
 
   release:
@@ -44,6 +44,6 @@ deployment:
       #- docker build -f docker/Dockerfile -t bespoken/encoder:$CIRCLE_BUILD_NUM .
       #- docker push bespoken/bst:$CIRCLE_BUILD_NUM
       #- docker push bespoken/bst:$CIRCLE_BUILD_NUM
-      - ls -la
-      - cd circle-rancher-deploy/rancher-tag/
+      - cd rancher-tag/
+      - ls -la      
       - rancher-compose -p encoder_$CIRCLE_BUILD_NUM up -d -u -c -p
