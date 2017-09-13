@@ -12,30 +12,18 @@ dependencies:
     - sudo mv rancher-compose-v$RANCHER_VERSION_NUM/rancher-compose /usr/local/bin/rancher-compose
     - sudo chmod +x /usr/local/bin/rancher-compose
     - rm -r rancher-compose-v$RANCHER_VERSION_NUM
-    #-export RANCHER_URL=$RANCHER_URL
-    #-export RANCHER_ACCESS_KEY=$RANCHER_ACCESS_KEY
-    #-export RANCHER_SECRET_KEY=$RANCHER_SECRET_KEY
-    #-export ENCODER_PORT=$ENCODER_PORT
-#general:
-#  branches:
-#    only:
-#      - master
 test:
   override:
     - rancher-compose  -v
 deployment:
-  #codecov:
-  #  branch: master
-  #  commands:
-  #    - npm run codecov
 
-  #encoder-prod:
-  #  branch: master
-  #  commands:
+  encoder-prod:
+    branch: master
+    commands:
       #- docker login -e $DOCKER_EMAIL -u $DOCKER_USER -p $DOCKER_PASS
-      #- docker build -f docker/Dockerfile -t bespoken/encoder:$CIRCLE_PROD .
-      #- docker push bespoken/bst:$CIRCLE_PROD
-  #    - rancher-compose -p encoder_prod --f rancher-master/docker-compose.yml -r rancher-master/rancher-compose.yml up -d -u -c -p
+      #- docker build -f docker/Dockerfile -t bespoken/encoder:$CIRCLE_BUILD_NUM .
+      #- docker push bespoken/bst:$CIRCLE_BUILD_NUM
+      - rancher-compose -p encoder_prod --f rancher-master/docker-compose.yml -r rancher-master/rancher-compose.yml up -d -u -c -p
 
   encoder-dev:
     tag: /release-.*/
