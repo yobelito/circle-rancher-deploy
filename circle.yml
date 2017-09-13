@@ -1,5 +1,6 @@
 machine:
-
+  services:
+    - docker
 dependencies:
   pre:
     - wget https://github.com/rancher/rancher-compose/releases/download/v$RANCHER_VERSION_NUM/rancher-compose-linux-amd64-v$RANCHER_VERSION_NUM.tar.gz
@@ -16,6 +17,7 @@ deployment:
   encoder-prod:
     branch: master
     commands:
+      #If we need deply in different enviroment need add:  -e <Enviroment name>
       - rancher-compose -p encoder_prod --f rancher-master/docker-compose.yml -r rancher-master/rancher-compose.yml up -d -u -c -p
 
   encoder-dev:
