@@ -16,7 +16,6 @@ deployment:
   encoder-prod:
     branch: master
     commands:
-      #If we need deply in different enviroment need add:  -e <Enviroment name>
       - rancher-compose -p encoder_prod --f rancher-master/docker-compose.yml -r rancher-master/rancher-compose.yml up -d -u -c -p
 
   encoder-dev:
