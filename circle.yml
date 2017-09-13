@@ -16,10 +16,10 @@ dependencies:
     #-export RANCHER_ACCESS_KEY=$RANCHER_ACCESS_KEY
     #-export RANCHER_SECRET_KEY=$RANCHER_SECRET_KEY
     #-export ENCODER_PORT=$ENCODER_PORT
-general:
-  branches:
-    only:
-      - master
+#general:
+#  branches:
+#    only:
+#      - master
 
 deployment:
   #codecov:
