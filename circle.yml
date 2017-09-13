@@ -43,5 +43,6 @@ deployment:
       #- docker build -f docker/Dockerfile -t bespoken/encoder:$CIRCLE_BUILD_NUM .
       #- docker push bespoken/bst:$CIRCLE_BUILD_NUM
       #- docker push bespoken/bst:$CIRCLE_BUILD_NUM
+      - ls - la
       - cd rancher-tag/
       - rancher-compose -p encoder_$CIRCLE_BUILD_NUM up -d -u -c -p
