@@ -29,7 +29,7 @@ deployment:
   #  commands:
   #    - npm run codecov
 
-  master:
+  encoder-prod:
     branch: master
     commands:
       #- docker login -e $DOCKER_EMAIL -u $DOCKER_USER -p $DOCKER_PASS
@@ -37,7 +37,7 @@ deployment:
       #- docker push bespoken/bst:$CIRCLE_PROD
       - rancher-compose -p encoder_prod --f rancher-master/docker-compose.yml -r rancher-master/rancher-compose.yml up -d -u -c -p
 
-  release:
+  encoder-dev:
     tag: /release-.*/
     commands:
       #- docker login -e $DOCKER_EMAIL -u $DOCKER_USER -p $DOCKER_PASS
