@@ -10,5 +10,5 @@ For start you need the Environment Variables
 
 If you need deploy the proyect in one different  environment you need add the option "-e" on rancher-compose commands
 ``` 
-rancher-compose -p encoder_prod --f rancher-master/docker-compose.yml -r rancher-master/rancher-compose.yml -e <environment name> up -d
+rancher-compose -p <stack name> --f <docker compose file> -r <rancher compose file> -e <environment name> up -d
 ```
