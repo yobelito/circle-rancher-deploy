@@ -1,8 +1,9 @@
 encoder-tag:
-  image: bespoken/bespoken-encoder
   stdin_open: true
   tty: true
+  build: https://raw.githubusercontent.com/yobelito/encoder/master/rancher-tag/Dockerfile
   ports:
-  - 59${CIRCLE_BUILD_NUM}:5900/tcp
+  - 80${CIRCLE_BUILD_NUM}:9200/tcp
+
   labels:
     io.rancher.container.pull_image: always

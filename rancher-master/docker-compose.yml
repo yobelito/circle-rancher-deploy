@@ -1,8 +1,12 @@
 encoder-master:
-  image: bespoken/bespoken-encoder
+  #image: bancher-bespoken/bespoken-encoder
   stdin_open: true
   tty: true
+  build: https://raw.githubusercontent.com/yobelito/encoder/master/rancher-master/Dockerfile
   ports:
-  - 5900:5900/tcp
+  - 80:9200/tcp
+  #environment:
+  #  AWS_KEY: ${AWS_KEY}
+  #  AWS_SECRET: ${AWS_SECRET}
   labels:
     io.rancher.container.pull_image: always
